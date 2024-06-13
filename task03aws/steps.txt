@@ -1,0 +1,24 @@
+1. attach policy to the role
+Find policy arn from console
+aws --profile my iam attach-role-policy --policy-arn <policy arn> --role-name <role name>
+
+
+aws --profile my iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess --role-name cmtr-7447aaf5-iam-peld-iam_role
+
+
+2. Deny for the role deletion of any object in the bucket
+2.1 form the file with the policy (policy.json):
+2.1.1. As a resource for DeleteObject set "<bucket name>/*" ("arn:aws:s3:::cmtr-7447aaf5-iam-peld-bucket-4118888/*")
+2.1.2. Get arn of the role by command:
+aws --profile my iam get-role --role-name cmtr-7447aaf5-iam-peld-iam_role
+set in the policy
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::783630147267:role/EC2S3DynamoDBFullAccess"
+        ]
+      }
+2.2. Run the command to set this bucket policy to the bucket:
+aws s3api put-bucket-policy --bucket <bucket name> --policy file://policy.json --profile my
+
+
+aws s3api put-bucket-policy --bucket cmtr-7447aaf5-iam-peld-bucket-4118888 --policy file://policy.json --profile my

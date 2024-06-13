@@ -1,0 +1,21 @@
+{
+  "Id": "Policy1718282458442",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1718282456748",
+      "Action": [
+        "s3:DeleteBucket"
+      ],
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::vtretiak-photo-bucket-001",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::783630147267:role/EC2S3DynamoDBFullAccess"
+        ]
+      }
+    }
+  ]
+}
+//If deleteBucket then resource should be just a bucket name
+//If DeteteObject then resource should be "<bucket name>/*" to match all objects
