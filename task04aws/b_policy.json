@@ -1,0 +1,33 @@
+{
+  "Id": "cmtr-7447aaf5-Policy1718377449",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "cmtr-7447aaf5-Stmt1718377450",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::cmtr-7447aaf5-iam-pela-bucket-1-5575918/*",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::196241772369:role/cmtr-7447aaf5-iam-pela-iam_role"
+        ]
+      }
+    },
+    {
+      "Sid": "cmtr-7447aaf5-Stmt1718377460",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::cmtr-7447aaf5-iam-pela-bucket-1-5575918",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::196241772369:role/cmtr-7447aaf5-iam-pela-iam_role"
+        ]
+      }
+    }
+  ]
+}

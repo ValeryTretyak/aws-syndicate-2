@@ -1,0 +1,12 @@
+{
+  "Version": "2012-10-17",
+  "Id": "cmtr-7447aaf5-Allow-ListBucket-Policy-1718378408",
+  "Statement": [
+    {
+      "Sid": "1718378409",
+      "Effect": "Allow",
+      "Action": "s3:ListAllMyBuckets",
+      "Resource": "*"
+    }
+  ]
+}
